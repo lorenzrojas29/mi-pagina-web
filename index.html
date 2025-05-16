@@ -3,29 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Mi pagina personal</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div>
-      <h1>¡Hola! Mi nombre es Laura Ramírez Gómez</h1>
+      <h1>¡Hola! Mi nombre es Lorenz Rojas</h1>
 
       <p>
-        Soy una desarrolladora web full-stack apasionada por crear soluciones
-        innovadoras y funcionales. Tengo experiencia en tecnologías modernas
-        como React, Node.js y MongoDB, y disfruto diseñar interfaces intuitivas
-        y sistemas robustos. Mi enfoque principal está en el desarrollo ágil,
-        optimización del rendimiento y la colaboración en equipo. Fuera del
-        código, me encanta aprender nuevas herramientas tecnológicas y
-        participar en proyectos de impacto social. Si buscas a alguien creativo,
-        dedicado y orientado a resultados, ¡soy la persona adecuada!
+        Mi enfoque principal está en el desarrollo de aplicaciones y aprendizaje
+        de nuevas tecnologías. Me gusta aprender sobre nuevas tecnologías y cómo
+        se pueden aplicar en el desarrollo de software.
       </p>
 
-      <img src="./Sobre Mi_files/imagen.jpg" alt="Logo" />
+      <img src="foto.png" alt="Logo" />
     </div>
 
     <div>
-      <a href="https://www.youtube.com/">TouTube</a>
-      <a href="https://github.com/">GitHub</a>
+      <a href="https://github.com/lorenzrojas29/">GitHub</a>
     </div>
 
     <div>
@@ -72,13 +67,57 @@
     <div>
       <h1>Formulario de contacto</h1>
       <form
+        id="contactForm"
         action="https://campus.talentotechcaribe.co/pluginfile.php/59419/mod_folder/content/0/index1.html"
       >
-        <input type="text" placeholder="Nombre" />
-        <input type="text" placeholder="Descripcion" />
-        <input type="email" placeholder="Correo" />
-        <button type="submit">Enviar informacion</button>
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          placeholder="Nombre"
+          required
+        />
+
+        <label for="descripcion">Descripción:</label>
+        <input
+          type="text"
+          id="descripcion"
+          name="descripcion"
+          placeholder="Descripción"
+          required
+        />
+
+        <label for="correo">Correo:</label>
+        <input
+          type="email"
+          id="correo"
+          name="correo"
+          placeholder="Correo"
+          required
+        />
+
+        <button type="submit">Enviar información</button>
       </form>
+      <div id="mensaje"></div>
+      <script>
+        document
+          .getElementById("contactForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+            const nombre = document.getElementById("nombre").value.trim();
+            const descripcion = document.getElementById("descripcion").value.trim();
+            const correo = document.getElementById("correo").value.trim();
+
+            if (!nombre || !descripcion || !correo) {
+              alert("Por favor, completa todos los campos.");
+            } else if (!/\S+@\S+\.\S+/.test(correo)) {
+              alert("Por favor, ingresa un correo válido.");
+            } else {
+              alert("¡Formulario enviado correctamente!");
+            }
+          });
+      </script>
     </div>
   </body>
 </html>
